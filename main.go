@@ -6,7 +6,9 @@ import (
 )
 
 // Definerer flag-variablene i hoved-"scope"
-var fahr float64
+var fahrenheit float64
+var celsius float64
+var kelvin float64
 var out string
 var funfacts string
 
@@ -22,8 +24,10 @@ func init() {
 	*/
 
 	// Definerer og initialiserer flagg-variablene
-	flag.Float64Var(&fahr, "F", 0.0, "temperatur i grader fahrenheit")
+	flag.Float64Var(&fahrenheit, "F", 0.0, "temperatur i grader fahrenheit")
 	// Du må selv definere flag-variablene for "C" og "K"
+	flag.Float64Var(&celsius, "C", 0.0, "temperatur i grader celsius")
+	flag.Float64Var(&kelvin, "K", 0.0, "temperatur i grader kelvin")
 	flag.StringVar(&out, "out", "C", "beregne temperatur i C - celsius, F - farhenheit, K- Kelvin")
 	flag.StringVar(&funfacts, "funfacts", "sun", "\"fun-facts\" om sun - Solen, luna - Månen og terra - Jorden")
 	// Du må selv definere flag-variabelen for -t flagget, som bestemmer
@@ -59,7 +63,7 @@ func main() {
 	*/
 
 	// Her er noen eksempler du kan bruke i den manuelle testingen
-	fmt.Println(fahr, out, funfacts)
+	fmt.Println(fahrenheit, out, funfacts)
 
 	fmt.Println("len(flag.Args())", len(flag.Args()))
 	fmt.Println("flag.NFlag()", flag.NFlag())
@@ -67,10 +71,36 @@ func main() {
 	fmt.Println(isFlagPassed("out"))
 
 	// Eksempel på enkel logikk
+	// FahrenheitToCelsius
 	if out == "C" && isFlagPassed("F") {
 		// Kalle opp funksjonen FahrenheitToCelsius(fahr), som da
 		// skal returnere °C
 		fmt.Println("0°F er -17.78°C")
+	}
+
+	//CelsiusToFahrenheit
+	if out == "F" && isFlagPassed("C") {
+		fmt.Println("0°C er 32°F")
+	}
+
+	//FahrenheitToKelvin
+	if out == "K" && isFlagPassed("F") {
+		fmt.Println("0°F er 255.372°K")
+	}
+
+	//KelvinToFahrenheit
+	if out == "F" && isFlagPassed("K") {
+		fmt.Println("0°K er -459.67°F")
+	}
+
+	//CelsiusToKelvin
+	if out == "K" && isFlagPassed("C") {
+		fmt.Println("0°C er 273.15°K")
+	}
+
+	//KelvinToCelsius
+	if out == "C" && isFlagPassed("K") {
+		fmt.Println("0°K er -273.15°C")
 	}
 
 }
