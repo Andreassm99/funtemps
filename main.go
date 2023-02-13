@@ -3,12 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	
-	"\TESTE-IMPLEMENTER1\funtemps"
 
-	"andre\is105\TESTE-IMPLEMENTER1\funtemps"
-
-	
+	"github.com/Andreassm99/funtemps/conv"
+	//"github.com/Andreassm99/funtemps/funfacts"
 )
 
 // Definerer flag-variablene i hoved-"scope"
@@ -81,32 +78,33 @@ func main() {
 	if out == "C" && isFlagPassed("F") {
 		// Kalle opp funksjonen FahrenheitToCelsius(fahr), som da
 		// skal returnere °C
-		fmt.Println("0°F er -17.78°C")
+		//fmt.Println("0°F er -17.78°C")
+		fmt.Println(conv.FarhenheitToCelsius(fahrenheit))
 	}
 
 	//CelsiusToFahrenheit
 	if out == "F" && isFlagPassed("C") {
-		fmt.Println("0°C er 32°F")
+		fmt.Println(conv.CelsiusToFahrenheit(celsius))
 	}
 
 	//FahrenheitToKelvin
 	if out == "K" && isFlagPassed("F") {
-		fmt.Println("0°F er 255.372°K")
+		fmt.Println(conv.FahrenheitToKelvin(fahrenheit))
 	}
 
 	//KelvinToFahrenheit
 	if out == "F" && isFlagPassed("K") {
-		fmt.Println("0°K er -459.67°F")
+		fmt.Println(conv.KelvinToFahrenheit(kelvin))
 	}
 
 	//CelsiusToKelvin
 	if out == "K" && isFlagPassed("C") {
-		fmt.Println("0°C er 273.15°K")
+		fmt.Println(conv.CelsiusToKelvin(celsius))
 	}
 
 	//KelvinToCelsius
 	if out == "C" && isFlagPassed("K") {
-		fmt.Println("0°K er -273.15°C")
+		fmt.Println(conv.KelvinToCelsius(kelvin))
 	}
 
 }
