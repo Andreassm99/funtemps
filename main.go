@@ -74,37 +74,43 @@ func main() {
 	fmt.Println(isFlagPassed("out"))
 
 	// Eksempel på enkel logikk
+
+	erlik := "="
+	f := "°F"
+	c := "°C"
+	k := "°K"
+
 	// FahrenheitToCelsius
 	if out == "C" && isFlagPassed("F") {
 		// Kalle opp funksjonen FahrenheitToCelsius(fahr), som da
 		// skal returnere °C
 		//fmt.Println("0°F er -17.78°C")
-		fmt.Println(conv.FarhenheitToCelsius(fahrenheit))
+		fmt.Println(fahrenheit, f, erlik, conv.FarhenheitToCelsius(fahrenheit), c)
 	}
 
 	//CelsiusToFahrenheit
 	if out == "F" && isFlagPassed("C") {
-		fmt.Println(conv.CelsiusToFahrenheit(celsius))
+		fmt.Println(celsius, c, erlik, conv.CelsiusToFahrenheit(celsius), f)
 	}
 
 	//FahrenheitToKelvin
 	if out == "K" && isFlagPassed("F") {
-		fmt.Println(conv.FahrenheitToKelvin(fahrenheit))
+		fmt.Println(fahrenheit, f, erlik, conv.FahrenheitToKelvin(fahrenheit), k)
 	}
 
 	//KelvinToFahrenheit
 	if out == "F" && isFlagPassed("K") {
-		fmt.Println(conv.KelvinToFahrenheit(kelvin))
+		fmt.Println(kelvin, k, erlik, conv.KelvinToFahrenheit(kelvin), f)
 	}
 
 	//CelsiusToKelvin
 	if out == "K" && isFlagPassed("C") {
-		fmt.Println(conv.CelsiusToKelvin(celsius))
+		fmt.Println(celsius, c, erlik, conv.CelsiusToKelvin(celsius), k)
 	}
 
 	//KelvinToCelsius
 	if out == "C" && isFlagPassed("K") {
-		fmt.Println(conv.KelvinToCelsius(kelvin))
+		fmt.Println(kelvin, k, erlik, conv.KelvinToCelsius(kelvin), c)
 	}
 
 }
