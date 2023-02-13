@@ -3,6 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	
+	"\TESTE-IMPLEMENTER1\funtemps"
+
+	"andre\is105\TESTE-IMPLEMENTER1\funtemps"
+
+	
 )
 
 // Definerer flag-variablene i hoved-"scope"
