@@ -75,17 +75,19 @@ func main() {
 
 	// Eksempel på enkel logikk
 
-	erlik := "="
+	erlik := "er"
 	f := "°F"
 	c := "°C"
-	k := "°K"
+	k := "K"
 
 	// FahrenheitToCelsius
 	if out == "C" && isFlagPassed("F") {
 		// Kalle opp funksjonen FahrenheitToCelsius(fahr), som da
 		// skal returnere °C
 		//fmt.Println("0°F er -17.78°C")
+
 		fmt.Println(fahrenheit, f, erlik, conv.FarhenheitToCelsius(fahrenheit), c)
+
 	}
 
 	//CelsiusToFahrenheit
