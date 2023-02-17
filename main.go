@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
+	"strconv"
 
 	"github.com/Andreassm99/funtemps/conv"
 	//"github.com/Andreassm99/funtemps/funfacts"
@@ -36,6 +38,18 @@ func init() {
 	// Du må selv definere flag-variabelen for -t flagget, som bestemmer
 	// hvilken temperaturskala skal brukes når funfacts skal vises
 
+}
+
+func addSpaces(s string) string { // legger til mellomrom mellom hvert 3 siffer
+	var buf bytes.Buffer
+	n := len(s)
+	for i, c := range s {
+		buf.WriteRune(c)
+		if i != n-1 && (n-i-1)%3 == 0 {
+			buf.WriteRune(' ')
+		}
+	}
+	return buf.String()
 }
 
 func main() {
@@ -84,12 +98,12 @@ func main() {
 	if out == "C" && isFlagPassed("F") {
 
 		svar := conv.FarhenheitToCelsius(fahrenheit)
-		fmt.Printf("%.9g %s %s ", fahrenheit, f, er)
+		fmt.Printf("%.12g %s %s ", fahrenheit, f, er)
 		if svar == float64(int(svar)) {
 
-			fmt.Printf("%d %s\n", int(svar), c)
+			fmt.Printf("%s %s\n", addSpaces(strconv.Itoa(int(svar))), c)
 		} else {
-			fmt.Printf("%.2f %s\n", svar, c)
+			fmt.Printf("%s %s\n", addSpaces(strconv.FormatFloat(svar, 'f', 2, 64)), c)
 		}
 
 		//fmt.Println(fahrenheit, f, erlik, conv.FarhenheitToCelsius(fahrenheit), c)
@@ -100,12 +114,12 @@ func main() {
 	if out == "F" && isFlagPassed("C") {
 
 		svar := conv.CelsiusToFahrenheit(celsius)
-		fmt.Printf("%.9g %s %s", celsius, c, er)
+		fmt.Printf("%.12g %s %s", celsius, c, er)
 		if svar == float64(int(svar)) {
 
-			fmt.Printf("%d %s\n", int(svar), f)
+			fmt.Printf("%s %s\n", addSpaces(strconv.Itoa(int(svar))), f) //Print hvis svar er heltall
 		} else {
-			fmt.Printf("%.2f %s\n", svar, f)
+			fmt.Printf("%s %s\n", addSpaces(strconv.FormatFloat(svar, 'f', 2, 64)), f) //Print hvis svar er desimaltall
 		}
 
 		//fmt.Println(celsius, c, erlik, conv.CelsiusToFahrenheit(celsius), f)
@@ -115,12 +129,12 @@ func main() {
 	if out == "K" && isFlagPassed("F") {
 
 		svar := conv.FahrenheitToKelvin(fahrenheit)
-		fmt.Printf("%.9g %s %s", fahrenheit, f, er)
+		fmt.Printf("%.12g %s %s", fahrenheit, f, er)
 		if svar == float64(int(svar)) {
 
-			fmt.Printf("%d %s\n", int(svar), k)
+			fmt.Printf("%s %s\n", addSpaces(strconv.Itoa(int(svar))), k)
 		} else {
-			fmt.Printf("%.2f %s\n", svar, k)
+			fmt.Printf("%s %s\n", addSpaces(strconv.FormatFloat(svar, 'f', 2, 64)), k)
 		}
 
 		//fmt.Println(fahrenheit, f, erlik, conv.FahrenheitToKelvin(fahrenheit), k)
@@ -130,11 +144,11 @@ func main() {
 	if out == "F" && isFlagPassed("K") {
 
 		svar := conv.KelvinToFahrenheit(kelvin)
-		fmt.Printf("%.9g %s %s", kelvin, k, er)
+		fmt.Printf("%.12g %s %s", kelvin, k, er)
 		if svar == float64(int(svar)) {
-			fmt.Printf("%d %s\n", int(svar), f)
+			fmt.Printf("%s %s\n", addSpaces(strconv.Itoa(int(svar))), f)
 		} else {
-			fmt.Printf("%.2f %s\n", svar, f)
+			fmt.Printf("%s %s\n", addSpaces(strconv.FormatFloat(svar, 'f', 2, 64)), f)
 		}
 
 		//fmt.Println(kelvin, k, erlik, conv.KelvinToFahrenheit(kelvin), f)
@@ -144,11 +158,11 @@ func main() {
 	if out == "K" && isFlagPassed("C") {
 
 		svar := conv.CelsiusToKelvin(celsius)
-		fmt.Printf("%.9g %s %s", celsius, c, er)
+		fmt.Printf("%.12g %s %s", celsius, c, er)
 		if svar == float64(int(svar)) {
-			fmt.Printf("%d %s\n", int(svar), k)
+			fmt.Printf("%s %s\n", addSpaces(strconv.Itoa(int(svar))), k)
 		} else {
-			fmt.Printf("%.2f %s\n", svar, k)
+			fmt.Printf("%s %s\n", addSpaces(strconv.FormatFloat(svar, 'f', 2, 64)), k)
 		}
 
 		//fmt.Println(celsius, c, erlik, conv.CelsiusToKelvin(celsius), k)
@@ -158,11 +172,11 @@ func main() {
 	if out == "C" && isFlagPassed("K") {
 
 		svar := conv.KelvinToCelsius(kelvin)
-		fmt.Printf("%.9g %s %s", kelvin, k, er)
+		fmt.Printf("%.12g %s %s", kelvin, k, er)
 		if svar == float64(int(svar)) {
-			fmt.Printf("%d %s\n", int(svar), c)
+			fmt.Printf("%s %s\n", addSpaces(strconv.Itoa(int(svar))), c)
 		} else {
-			fmt.Printf("%.2f %s\n", svar, c)
+			fmt.Printf("%s %s\n", addSpaces(strconv.FormatFloat(svar, 'f', 2, 64)), c)
 		}
 
 		//fmt.Println(kelvin, k, erlik, conv.KelvinToCelsius(kelvin), c)
