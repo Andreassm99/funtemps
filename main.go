@@ -75,44 +75,97 @@ func main() {
 
 	// Eksempel på enkel logikk
 
-	erlik := "er"
+	er := "er "
 	f := "°F"
 	c := "°C"
 	k := "K"
 
 	// FahrenheitToCelsius
 	if out == "C" && isFlagPassed("F") {
-		// Kalle opp funksjonen FahrenheitToCelsius(fahr), som da
-		// skal returnere °C
-		//fmt.Println("0°F er -17.78°C")
 
-		fmt.Println(fahrenheit, f, erlik, conv.FarhenheitToCelsius(fahrenheit), c)
+		svar := conv.FarhenheitToCelsius(fahrenheit)
+		fmt.Printf("%.9g %s %s ", fahrenheit, f, er)
+		if svar == float64(int(svar)) {
+
+			fmt.Printf("%d %s\n", int(svar), c)
+		} else {
+			fmt.Printf("%.2f %s\n", svar, c)
+		}
+
+		//fmt.Println(fahrenheit, f, erlik, conv.FarhenheitToCelsius(fahrenheit), c)
 
 	}
 
 	//CelsiusToFahrenheit
 	if out == "F" && isFlagPassed("C") {
-		fmt.Println(celsius, c, erlik, conv.CelsiusToFahrenheit(celsius), f)
+
+		svar := conv.CelsiusToFahrenheit(celsius)
+		fmt.Printf("%.9g %s %s", celsius, c, er)
+		if svar == float64(int(svar)) {
+
+			fmt.Printf("%d %s\n", int(svar), f)
+		} else {
+			fmt.Printf("%.2f %s\n", svar, f)
+		}
+
+		//fmt.Println(celsius, c, erlik, conv.CelsiusToFahrenheit(celsius), f)
 	}
 
 	//FahrenheitToKelvin
 	if out == "K" && isFlagPassed("F") {
-		fmt.Println(fahrenheit, f, erlik, conv.FahrenheitToKelvin(fahrenheit), k)
+
+		svar := conv.FahrenheitToKelvin(fahrenheit)
+		fmt.Printf("%.9g %s %s", fahrenheit, f, er)
+		if svar == float64(int(svar)) {
+
+			fmt.Printf("%d %s\n", int(svar), k)
+		} else {
+			fmt.Printf("%.2f %s\n", svar, k)
+		}
+
+		//fmt.Println(fahrenheit, f, erlik, conv.FahrenheitToKelvin(fahrenheit), k)
 	}
 
 	//KelvinToFahrenheit
 	if out == "F" && isFlagPassed("K") {
-		fmt.Println(kelvin, k, erlik, conv.KelvinToFahrenheit(kelvin), f)
+
+		svar := conv.KelvinToFahrenheit(kelvin)
+		fmt.Printf("%.9g %s %s", kelvin, k, er)
+		if svar == float64(int(svar)) {
+			fmt.Printf("%d %s\n", int(svar), f)
+		} else {
+			fmt.Printf("%.2f %s\n", svar, f)
+		}
+
+		//fmt.Println(kelvin, k, erlik, conv.KelvinToFahrenheit(kelvin), f)
 	}
 
 	//CelsiusToKelvin
 	if out == "K" && isFlagPassed("C") {
-		fmt.Println(celsius, c, erlik, conv.CelsiusToKelvin(celsius), k)
+
+		svar := conv.CelsiusToKelvin(celsius)
+		fmt.Printf("%.9g %s %s", celsius, c, er)
+		if svar == float64(int(svar)) {
+			fmt.Printf("%d %s\n", int(svar), k)
+		} else {
+			fmt.Printf("%.2f %s\n", svar, k)
+		}
+
+		//fmt.Println(celsius, c, erlik, conv.CelsiusToKelvin(celsius), k)
 	}
 
 	//KelvinToCelsius
 	if out == "C" && isFlagPassed("K") {
-		fmt.Println(kelvin, k, erlik, conv.KelvinToCelsius(kelvin), c)
+
+		svar := conv.KelvinToCelsius(kelvin)
+		fmt.Printf("%.9g %s %s", kelvin, k, er)
+		if svar == float64(int(svar)) {
+			fmt.Printf("%d %s\n", int(svar), c)
+		} else {
+			fmt.Printf("%.2f %s\n", svar, c)
+		}
+
+		//fmt.Println(kelvin, k, erlik, conv.KelvinToCelsius(kelvin), c)
 	}
 
 }
